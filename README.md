@@ -26,59 +26,7 @@ BoshiStudent.java类定义博士生的相关信息，包含name，age，sex，fe
 通过调用博士生对象的querySalary()和queryFee()这两个方法来计算收入和计算的税收的金额。将算出来的金额传入calculateFate()方法中。
 calculateFate()方法使用if else来对不同的金额使用不同的计算方式，计算所需要的因数使用static final定义成全局静态常量。然后将计算出来的值返回。
 
-# 核心代码：
- public static void main(String[] args) {
-        //实例化对象
-        BoshiStudent student1 = new BoshiStudent();
-        BoshiStudent student2 = new BoshiStudent();
-        //流读取2对象
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("请选择实例化方式");
-        System.out.println("1.使用args初始化");
-        System.out.println("2.使用scanner初始化");
-        int mode = scanner.nextInt();
-        while (true){
-            try {
-                if(mode==1){
-                    student1.setName(args[0]);
-                    student1.setAge(Integer.valueOf(args[1]));
-                    student1.setSex(args[2]);
-                    student1.setSalary(Double.valueOf(args[3]));
-                    student1.setFee(Double.valueOf(args[4]));
-                    student2.setName(args[5]);
-                    student2.setAge(Integer.valueOf(args[6]));
-                    student2.setSex(args[7]);
-                    student2.setSalary(Double.valueOf(args[8]));
-                    student2.setFee(Double.valueOf(args[9]));
-                    break;
-                }else if(mode==2){
-                    System.out.println("请输入博士生1的信息(姓名 年龄 性别 薪水 学费)，以空格分隔：");
-                    Scanner scanner1 = new Scanner(System.in);
-                    String msg1 = scanner1.nextLine();
-                    String[] msgs1 =  msg1.split(" ");
-                    student1.setName(msgs1[0]);
-                    student1.setAge(Integer.valueOf(msgs1[1]));
-                    student1.setSex(msgs1[2]);
-                    student1.setSalary(Double.valueOf(msgs1[3]));
-                    student1.setFee(Double.valueOf(msgs1[4]));
-                    System.out.println("请输入博士生2的信息(姓名 年龄 性别 薪水 学费)，以空格分隔：");
-                    Scanner scanner2 = new Scanner(System.in);
-                    String msg2 = scanner2.nextLine();
-                    String[] msgs2 =  msg2.split(" ");
-                    student2.setName(msgs2[0]);
-                    student2.setAge(Integer.valueOf(msgs2[1]));
-                    student2.setSex(msgs2[2]);
-                    student2.setSalary(Double.valueOf(msgs2[3]));
-                    student2.setFee(Double.valueOf(msgs2[4]));
-                    break;
-                }else{
-                    System.out.println("输入有误，请重新输入");
-                }
-            }catch (Exception e){
-                System.out.println("输入有误，请重新输入");
-            }
-
-        }
+# 核心代码（部分）：
         System.out.println("博士生1每年的薪水收入：");
         System.out.println(student1.getSalary() * 12);
         System.out.println("博士生1每年的缴纳学费：");
@@ -95,8 +43,7 @@ calculateFate()方法使用if else来对不同的金额使用不同的计算方�
         System.out.println(((student2.getSalary() * 12) - (student2.getFee() * 2)));
         System.out.println("博士生2每年应纳税金额：");
         System.out.println(calauRate((student2.querySalary()) - (student2.queryFee())));
-
-    }
+        
     //计算税率
     //应纳税额=应纳税所得额×适用税率-速算扣除数
     
